@@ -7,11 +7,29 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "title_bar": {
+    "show_branch_name": true,
+    "show_onboarding_banner": false,
+    "show_project_items": false,
+    "show_sign_in": false,
+    "show_user_picture": false
+  },
+  "tab_bar": {
+    "show": true,
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false
+  },
+  "file_finder": {
+    "modal_max_width": "medium"
+  },
+  "terminal": {
+    "font_family": "Hack Nerd Font",
+    "line_height": "standard"
+  },
   "auto_install_extensions": {
     "basedpyright": true,
     "catppuccin": true,
     "catppuccin-icons": true,
-    "color-highlight": true,
     "csharp": true,
     "dockerfile": true,
     "fastapi-snippets": true,
@@ -71,7 +89,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:1.5b"
+      "model": "qwen2.5-coder:7b"
     }
   },
   "icon_theme": "Catppuccin Mocha",

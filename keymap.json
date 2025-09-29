@@ -32,6 +32,10 @@
       "ctrl-shift-d": "workspace::ToggleBottomDock",
       "space a": "workspace::ToggleRightDock",
       "space f f": "file_finder::Toggle",
+      "space f g": [
+        "task::Spawn",
+        { "task_name": "tv text search", "reveal_target": "center" }
+      ],
       "space x": "pane::CloseActiveItem",
       "space shift-x": [
         "pane::CloseOtherItems",
@@ -39,7 +43,10 @@
           "close_pinned": false
         }
       ],
-      "space l g": "git_panel::ToggleFocus",
+      "space l g": [
+        "task::Spawn",
+        { "task_name": "Open lazygit", "reveal_target": "center" }
+      ],
       "ctrl-\\": "project_panel::ToggleFocus"
     }
   },
