@@ -8,6 +8,13 @@
     "hide": "always"
   },
   {
+    "label": "open k9s",
+    "command": "k9s",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
     "label": "tv text search",
     "command": "zed \"$(tv text)\"",
     "hide": "always",
