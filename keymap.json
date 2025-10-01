@@ -6,6 +6,7 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // workspace
   {
     "context": "Workspace",
     "bindings": {}
@@ -18,9 +19,11 @@
       "ctrl-down": "workspace::ActivatePaneDown",
       "ctrl-up": "workspace::ActivatePaneUp",
       "ctrl-n": "workspace::ToggleLeftDock",
-      "space f f": "file_finder::Toggle"
+      "ctrl-shift-d": "workspace::ToggleBottomDock"
     }
   },
+
+  // editor
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
@@ -28,24 +31,25 @@
     }
   },
   {
-    "context": "vim_mode == normal",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "ctrl-u": ["workspace::SendKeystrokes", "ctrl-u z z"],
       "ctrl-d": ["workspace::SendKeystrokes", "ctrl-d z z"],
-      "ctrl-n": "workspace::ToggleLeftDock",
-      "ctrl-shift-d": "workspace::ToggleBottomDock",
-      "space a": "workspace::ToggleRightDock",
-      "space f f": "file_finder::Toggle",
-      "space f g": [
-        "task::Spawn",
-        { "task_name": "tv text search", "reveal_target": "center" }
-      ],
       "space x": "pane::CloseActiveItem",
       "space shift-x": [
         "pane::CloseOtherItems",
         {
           "close_pinned": false
         }
+      ],
+      "space a": "workspace::ToggleRightDock",
+      "space f f": "file_finder::Toggle",
+      "space z": "workspace::CloseAllDocks",
+      "space `": "workspace::NewCenterTerminal",
+      "ctrl-\\": "project_panel::ToggleFocus",
+      "space f g": [
+        "task::Spawn",
+        { "task_name": "tv text search", "reveal_target": "center" }
       ],
       "space l g": [
         "task::Spawn",
@@ -54,14 +58,11 @@
       "space k 9": [
         "task::Spawn",
         { "task_name": "open k9s", "reveal_target": "center" }
-      ],
-      "space z": "workspace::CloseAllDocks",
-      "space `": "workspace::NewCenterTerminal",
-      "ctrl-\\": "project_panel::ToggleFocus"
+      ]
     }
   },
   {
-    "context": "vim_mode == visual",
+    "context": "Editor && vim_mode == visual",
     "bindings": {
       "p": [
         "vim::Paste",
@@ -71,45 +72,46 @@
       ]
     }
   },
-  // panel
-  {
-    "context": "(ProjectPanel && not_editing)",
-    "bindings": {
-      "a": "project_panel::NewFile",
-      "d": "project_panel::Delete"
-    }
-  },
-  {
-    "context": "ProjectPanel",
-    "bindings": {
-      "ctrl-n": "workspace::ToggleLeftDock"
-    }
-  },
+
+  // debug panel
   {
     "context": "DebugPanel",
     "bindings": {
       "ctrl-shift-d": "workspace::ToggleBottomDock"
     }
   },
+
+  // project panel
   {
     "context": "(ProjectPanel && not_editing)",
     "bindings": {
-      "space": "project_panel::OpenPermanent"
+      "space": "project_panel::OpenPermanent",
+      "ctrl-n": "workspace::ToggleLeftDock",
+      "a": "project_panel::NewFile",
+      "d": "project_panel::Delete"
     }
   },
-  // debug
+
+  // terminal
+  {
+    "context": "Terminal && vi_mode",
+    "bindings": {
+      "space x": "pane::CloseActiveItem",
+      "space f f": "file_finder::Toggle"
+    }
+  },
+
+  // debugging
   {
     "context": "Editor",
     "bindings": {
+      "f6": "debugger::Stop",
       "f10": "debugger::StepOver",
       "f11": "debugger::StepInto"
     }
   },
-  {
-    "bindings": {
-      "ctrl-b z": "workspace::ToggleZoom"
-    }
-  },
+
+  // left dock nav
   {
     "context": "ProjectPanel",
     "bindings": {
