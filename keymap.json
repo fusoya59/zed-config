@@ -18,7 +18,7 @@
       "ctrl-down": "workspace::ActivatePaneDown",
       "ctrl-up": "workspace::ActivatePaneUp",
       "ctrl-n": "workspace::ToggleLeftDock",
-      "space f f": "file_finder::Toggle"
+      "f f": "file_finder::Toggle"
     }
   },
   {
