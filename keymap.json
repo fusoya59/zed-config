@@ -11,14 +11,14 @@
     "bindings": {}
   },
   {
-    "context": "(VimControl || Dock || EmptyPane)",
+    "context": "(vim_mode == normal || !Editor || EmptyPane)",
     "bindings": {
       "ctrl-right": "workspace::ActivatePaneRight",
       "ctrl-left": "workspace::ActivatePaneLeft",
       "ctrl-down": "workspace::ActivatePaneDown",
       "ctrl-up": "workspace::ActivatePaneUp",
       "ctrl-n": "workspace::ToggleLeftDock",
-      "f f": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle"
     }
   },
   {
