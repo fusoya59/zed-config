@@ -56,6 +56,7 @@
         { "task_name": "open k9s", "reveal_target": "center" }
       ],
       "space z": "workspace::CloseAllDocks",
+      "space `": "workspace::NewCenterTerminal",
       "ctrl-\\": "project_panel::ToggleFocus"
     }
   },
