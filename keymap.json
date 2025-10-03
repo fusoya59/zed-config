@@ -88,7 +88,8 @@
       "space": "project_panel::OpenPermanent",
       "ctrl-n": "workspace::ToggleLeftDock",
       "a": "project_panel::NewFile",
-      "d": "project_panel::Delete"
+      "d": "project_panel::Delete",
+      "r": "project_panel::Rename"
     }
   },
 

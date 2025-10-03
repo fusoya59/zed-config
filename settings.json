@@ -43,6 +43,25 @@
     "terraform": true,
     "toml": true
   },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "ruff", "!pyright"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": false,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    }
+  },
   "lsp": {
     "basedpyright": {
       "settings": {
@@ -82,6 +101,7 @@
     }
   },
   "agent": {
+    "always_allow_tool_actions": true,
     "inline_assistant_model": {
       "provider": "ollama",
       "model": "qwen2.5-coder:1.5b"
@@ -89,7 +109,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:7b"
+      "model": "qwen2.5-coder:1.5b"
     }
   },
   "icon_theme": "Catppuccin Mocha",
@@ -101,12 +121,10 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha"
   },
+  "file_scan_exclusions": [".venv", ".git", "__pycache__", ".mypy_cache"],
   "relative_line_numbers": true,
   "project_panel": {
     "sticky_scroll": true,
-    "hide_gitignore": true
-  },
-  "command_aliases": {
-    "X": "pane::CloseOtherItems"
+    "hide_gitignore": false
   }
 }
