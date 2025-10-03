@@ -10,7 +10,7 @@
   "title_bar": {
     "show_branch_name": true,
     "show_onboarding_banner": false,
-    "show_project_items": false,
+    "show_project_items": true,
     "show_sign_in": false,
     "show_user_picture": false
   },
@@ -103,6 +103,10 @@
   },
   "relative_line_numbers": true,
   "project_panel": {
+    "sticky_scroll": true,
     "hide_gitignore": true
+  },
+  "command_aliases": {
+    "X": "pane::CloseOtherItems"
   }
 }
