@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "confirm_quit": true,
   "title_bar": {
     "show_branch_name": true,
     "show_onboarding_banner": false,
@@ -23,11 +24,11 @@
     "modal_max_width": "medium"
   },
   "terminal": {
-    "font_family": "Hack Nerd Font",
+    "font_family": "FiraCode Nerd Font",
+    "font_size": 16,
     "line_height": "standard"
   },
   "auto_install_extensions": {
-    "basedpyright": true,
     "catppuccin": true,
     "catppuccin-icons": true,
     "csharp": true,
@@ -38,21 +39,35 @@
     "lua": true,
     "python-snippets": true,
     "rainbow-csv": true,
-    "ruff": true,
     "sql": true,
     "terraform": true,
     "toml": true
   },
   "languages": {
+    "YAML": {
+      "prettier": {
+        "bracketSpacing": false
+      }
+    },
+    "TOML": {
+      "format_on_save": "on",
+      "language_servers": [
+        "taplo"
+      ]
+    },
     "Python": {
-      "language_servers": ["basedpyright", "ruff", "!pyright"],
+      "language_servers": [
+        "basedpyright",
+        "ruff",
+        "!pyright"
+      ],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_actions": {
-            "source.organizeImports.ruff": false,
-            "source.fixAll.ruff": true
-          }
+          "code_action": "source.organizeImports.ruff"
+        },
+        {
+          "code_action": "source.fixAll.ruff"
         },
         {
           "language_server": {
@@ -67,6 +82,7 @@
       "settings": {
         "basedpyright.analysis": {
           "diagnosticSeverityOverrides": {
+            "reportUnknownMemberType": false,
             "reportMissingTypeStubs": false,
             "reportArgumentType": false,
             "reportDeprecated": false,
@@ -86,7 +102,7 @@
         "api_url": "http://localhost:8080/v1",
         "available_models": [
           {
-            "name": "claude-3.7-sonnet",
+            "name": "bedrock/us.anthropic.claude-3-7-sonnet-20250219-v1:0",
             "display_name": "claude-3.7-sonnet",
             "max_tokens": 32768,
             "capabilities": {
@@ -103,28 +119,42 @@
   "agent": {
     "always_allow_tool_actions": true,
     "inline_assistant_model": {
-      "provider": "ollama",
-      "model": "qwen2.5-coder:1.5b"
+      "provider": "litellm",
+      "model": "bedrock/us.anthropic.claude-3-7-sonnet-20250219-v1:0"
     },
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "provider": "ollama",
-      "model": "qwen2.5-coder:1.5b"
+      "provider": "litellm",
+      "model": "bedrock/us.anthropic.claude-3-7-sonnet-20250219-v1:0"
     }
   },
   "icon_theme": "Catppuccin Mocha",
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 17,
+  "buffer_font_size": 16,
+  "buffer_font_family": "FiraCode Nerd Font",
+  "buffer_line_height": "standard",
+  "agent_buffer_font_size": 15,
   "theme": {
     "mode": "system",
     "light": "One Light",
     "dark": "Catppuccin Mocha"
   },
-  "file_scan_exclusions": [".venv", ".git", "__pycache__", ".mypy_cache"],
-  "relative_line_numbers": true,
+  "file_scan_exclusions": [
+    ".venv",
+    "__pycache__",
+    ".mypy_cache",
+    ".terraform"
+  ],
+  "relative_line_numbers": "enabled",
+  "preferred_line_length": 120,
+  "centered_layout": {
+    "left_padding": 0.15,
+    "right_padding": 0.15
+  },
   "project_panel": {
     "sticky_scroll": true,
-    "hide_gitignore": false
+    "hide_gitignore": true,
+    "auto_reveal_entries": true
   }
 }

@@ -44,21 +44,14 @@
       ],
       "space a": "workspace::ToggleRightDock",
       "space f f": "file_finder::Toggle",
-      "space z": "workspace::CloseAllDocks",
+      "space z x": "workspace::CloseAllDocks",
+      "space z c": "workspace::ToggleCenteredLayout",
+      "space z z": ["workspace::SendKeystrokes", "space z x space z c"],
       "space `": "workspace::NewCenterTerminal",
       "ctrl-\\": "project_panel::ToggleFocus",
-      "space f g": [
-        "task::Spawn",
-        { "task_name": "tv text search", "reveal_target": "center" }
-      ],
-      "space l g": [
-        "task::Spawn",
-        { "task_name": "Open lazygit", "reveal_target": "center" }
-      ],
-      "space k 9": [
-        "task::Spawn",
-        { "task_name": "open k9s", "reveal_target": "center" }
-      ]
+      "space f g": ["task::Spawn", { "task_name": "tv text search", "reveal_target": "center" }],
+      "space l g": ["task::Spawn", { "task_name": "Open lazygit", "reveal_target": "center" }],
+      "space k 9": ["task::Spawn", { "task_name": "open k9s", "reveal_target": "center" }]
     }
   },
   {
@@ -89,7 +82,8 @@
       "ctrl-n": "workspace::ToggleLeftDock",
       "a": "project_panel::NewFile",
       "d": "project_panel::Delete",
-      "r": "project_panel::Rename"
+      "r": "project_panel::Rename",
+      "shift-h": "project_panel::ToggleHideGitIgnore"
     }
   },
 
