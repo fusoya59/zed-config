@@ -9,7 +9,7 @@
   // workspace
   {
     "context": "Workspace",
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "(vim_mode == normal || !Editor || EmptyPane)",
@@ -18,9 +18,9 @@
       "ctrl-left": "workspace::ActivatePaneLeft",
       "ctrl-down": "workspace::ActivatePaneDown",
       "ctrl-up": "workspace::ActivatePaneUp",
-      "ctrl-n": "workspace::ToggleLeftDock",
-      "ctrl-shift-d": "workspace::ToggleBottomDock"
-    }
+      "ctrl-n": "workspace::ToggleRightDock",
+      "ctrl-shift-d": "workspace::ToggleBottomDock",
+    },
   },
 
   // editor
@@ -28,7 +28,7 @@
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
-    }
+    },
   },
   {
     "context": "Editor && vim_mode == normal",
@@ -39,10 +39,10 @@
       "space shift-x": [
         "pane::CloseOtherItems",
         {
-          "close_pinned": false
-        }
+          "close_pinned": false,
+        },
       ],
-      "space a": "workspace::ToggleRightDock",
+      "space a": "workspace::ToggleLeftDock",
       "space f f": "file_finder::Toggle",
       "space z x": "workspace::CloseAllDocks",
       "space z c": "workspace::ToggleCenteredLayout",
@@ -51,8 +51,8 @@
       "ctrl-\\": "project_panel::ToggleFocus",
       "space f g": ["task::Spawn", { "task_name": "tv text search", "reveal_target": "center" }],
       "space l g": ["task::Spawn", { "task_name": "Open lazygit", "reveal_target": "center" }],
-      "space k 9": ["task::Spawn", { "task_name": "open k9s", "reveal_target": "center" }]
-    }
+      "space k 9": ["task::Spawn", { "task_name": "open k9s", "reveal_target": "center" }],
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
@@ -60,18 +60,18 @@
       "p": [
         "vim::Paste",
         {
-          "preserve_clipboard": true
-        }
-      ]
-    }
+          "preserve_clipboard": true,
+        },
+      ],
+    },
   },
 
   // debug panel
   {
     "context": "DebugPanel",
     "bindings": {
-      "ctrl-shift-d": "workspace::ToggleBottomDock"
-    }
+      "ctrl-shift-d": "workspace::ToggleBottomDock",
+    },
   },
 
   // project panel
@@ -83,8 +83,8 @@
       "a": "project_panel::NewFile",
       "d": "project_panel::Delete",
       "r": "project_panel::Rename",
-      "shift-h": "project_panel::ToggleHideGitIgnore"
-    }
+      "shift-h": "project_panel::ToggleHideGitIgnore",
+    },
   },
 
   // terminal
@@ -92,8 +92,8 @@
     "context": "Terminal && vi_mode",
     "bindings": {
       "space x": "pane::CloseActiveItem",
-      "space f f": "file_finder::Toggle"
-    }
+      "space f f": "file_finder::Toggle",
+    },
   },
 
   // debugging
@@ -102,8 +102,8 @@
     "bindings": {
       "f6": "debugger::Stop",
       "f10": "debugger::StepOver",
-      "f11": "debugger::StepInto"
-    }
+      "f11": "debugger::StepInto",
+    },
   },
 
   // left dock nav
@@ -111,21 +111,45 @@
     "context": "ProjectPanel",
     "bindings": {
       "]": "git_panel::ToggleFocus",
-      "[": "outline_panel::ToggleFocus"
-    }
+      "[": "outline_panel::ToggleFocus",
+    },
   },
   {
     "context": "GitPanel",
     "bindings": {
       "]": "outline_panel::ToggleFocus",
-      "[": "project_panel::ToggleFocus"
-    }
+      "[": "project_panel::ToggleFocus",
+    },
   },
   {
     "context": "OutlinePanel",
     "bindings": {
       "]": "project_panel::ToggleFocus",
-      "[": "git_panel::ToggleFocus"
+      "[": "git_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "space a": "editor::ToggleCodeActions",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space g g": "git_graph::Open",
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-t": "project_symbols::Toggle"
     }
   }
 ]
